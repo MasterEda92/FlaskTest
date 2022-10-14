@@ -16,3 +16,8 @@ def hello_world():
 
     out = render_template("start.html", name="Stefan Eder", items=items)
     return out
+
+
+@app.route("/test")
+def test():
+    return render_template("test.html", name="Stefan Eder")
