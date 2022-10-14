@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Start</title>
+    <link rel="stylesheet" href="./static/css/normalize.css"></link>
+    <link rel="stylesheet" href="./static/css/skeleton.css"></link>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ name }}</h1>
+
+        {% for item in items %}
+            <p>{{ item }}</p>
+        {% endfor %}
+
+    </div>
+</body>
+</html>
