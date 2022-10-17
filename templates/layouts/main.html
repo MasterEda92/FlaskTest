@@ -11,10 +11,18 @@
   </head>
   <body>
       <div class="container">
-        <h4>Navigationsleiste</h4>
+          <ul class="navigation">
+              <li class="navigation-item">
+                  <a href="/"> Startseite</a>
+              </li>
+              <li class="navigation-item">
+                  <a href="/test">Testseite</a>
+              </li>
+          </ul>
+          <div style="clear: both;">&nbsp;</div>
 
-        {% block content %}
-        {% endblock %}
+          {% block content %}
+          {% endblock %}
       </div>
 
   </body>
