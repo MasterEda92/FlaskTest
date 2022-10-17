@@ -10,9 +10,19 @@ from flask import Flask, render_template, request
 app = Flask(__name__)
 
 
+class Item:
+    def __init__(self, name, amount):
+        self.name = name
+        self.amount = amount
+
+
 @app.route("/")
 def hello_world():
-    items = ["Apfel", "Birne", "Banane"]
+    items = [
+        Item("Apfel", 5),
+        Item("Computer", 1),
+        Item("Birne", 4)
+    ]
 
     out = render_template("start.html", name="Stefan Eder", items=items)
     return out

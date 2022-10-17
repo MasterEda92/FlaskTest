@@ -4,6 +4,6 @@
     <h1>{{ name }}</h1>
 
     {% for item in items %}
-        <p>{{ item }}</p>
+        <p>{{ item.name }}  (Anzahl: {{ item.amount }}: )</p>
     {% endfor %}
 {% endblock %}
