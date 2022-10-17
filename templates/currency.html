@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="row">
+  <div class="one-third column">
+    <form method="get">
+      <label for="currency1">Currency 1:</label>
+      <input type="text" name="currency1" placeholder="Currency 1" id="currency1" value="{% if currency1 != None: %}{{ currency1 }}{% endif %}" />
+
+      <label for="currency2">Currency 2:</label>
+      <input type="text" name="currency2" placeholder="Currency 2" id="currency2" value="{% if currency2 != None: %}{{ currency2 }}{% endif %}" />
+
+      <label for="rate">Rate:</label>
+      <input type="text" name="rate" placeholder="Rate" id="rate" value="{% if rate != None: %}{{ rate }}{% endif %}" />
+
+      <br/>
+      <input type="submit" value="Absenden!"/>
+    </form>
+  </div>
+  <div class="one-third column">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>{{ currency1 }}</th>
+          <th>{{ currency2 }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in table1 %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="one-third column">
+    <table class="u-full-width">
+      <thead>
+        <tr>
+          <th>{{ currency2 }}</th>
+          <th>{{ currency1 }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in table2 %}
+          <tr>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[1] }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+{% endblock %}
