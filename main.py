@@ -5,7 +5,7 @@
 
 
 # Press the green button in the gutter to run the script.
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -20,4 +20,5 @@ def hello_world():
 
 @app.route("/test")
 def test():
-    return render_template("test.html", name="Stefan Eder")
+    name = request.args.get("name")
+    return render_template("test.html", name=name)
