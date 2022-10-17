@@ -1,24 +1,23 @@
 def outer(func):
-    counter = 0
+    cached = {}
 
-    def inner():
-        nonlocal counter
-        print(f"Wurde bisher {counter} mal ausgeführt")
-        counter += 1
-        func()
+    def inner(x):
+        nonlocal cached
+        if x in cached:
+            return cached[x]
+
+        result = func(x)
+        cached[x] = result
+        return result
 
     return inner
 
 
 @outer
-def do_something():
-    print("do_something() wurde ausgeführt")
+def calculate_something(x):
+    print(f"calculate something ({str(x)})")
+    return x * x
 
 
-# do_something = outer(do_something)
-
-
-do_something()
-do_something()
-do_something()
-do_something()
+print(calculate_something(5))
+print(calculate_something(5))
