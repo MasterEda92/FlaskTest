@@ -1,23 +1,16 @@
-def outer(func):
-    cached = {}
+def repeat(n):
+    def deco(func):
+        def inner():
+            for i in range(0, n):
+                func()
 
-    def inner(x):
-        nonlocal cached
-        if x in cached:
-            return cached[x]
-
-        result = func(x)
-        cached[x] = result
-        return result
-
-    return inner
+        return inner
+    return deco
 
 
-@outer
-def calculate_something(x):
-    print(f"calculate something ({str(x)})")
-    return x * x
+@repeat(5)
+def do_something():
+    print("do_something() wurde ausgeführt")
 
 
-print(calculate_something(5))
-print(calculate_something(5))
+do_something()
