@@ -21,4 +21,5 @@ def hello_world():
 @app.route("/test")
 def test():
     name = request.args.get("name")
-    return render_template("test.html", name=name)
+    age = request.args.get("age")
+    return render_template("test.html", name=name, age=age)
